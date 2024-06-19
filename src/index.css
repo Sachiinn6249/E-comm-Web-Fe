@@ -1,0 +1,136 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+  .paused {
+   animation-play-state: paused ;
+  }
+}
+
+:root {
+  --background-gradient: theme('backgroundImage.light-gradient');
+}
+
+.dark {
+  --background-gradient: theme('backgroundImage.dark-gradient');
+}
+
+ body {
+  background-image: var(--background-gradient);
+  background-repeat: repeat;
+  /* animation: gradient 15s ease infinite;  */
+ }
+
+
+  .toggle {
+    background: rgba(157, 159, 157, 0.05);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 50px 20px rgba(0, 0, 0, .1);
+    line-height: 1;
+  }
+  .toggle:hover{
+    background-color: #50C878;
+  }
+  .logoAni{
+
+    animation: myAnim 2s ease 0s 1 normal forwards;
+  }
+  @keyframes myAnim {
+    0% {
+      opacity: 0;
+      transform: translateX(-250px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .logoAni2 {
+
+    animation: myAnim2 2s ease 0s 1 normal forwards;
+  }
+  @keyframes myAnim2 {
+    0% {
+      opacity: 0;
+      transform: translateX(250px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes MenuAppearAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(-250px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes MenuDisappearAnimation {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-250px);
+    }
+  }
+  
+  .appear {
+    display: flex;
+    animation: MenuAppearAnimation 2s ease 0s 1 normal forwards;
+  }
+  
+  .disappear {
+    display: none;
+    animation: MenuDisappearAnimation 2s ease 0s 1 normal forwards;
+  }
+  
+  .swiper {
+    height: 500px !important;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+  
+    height: 350px;
+    display: flex;
+    margin-top: 70px;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+ 
+.product-card{
+  background: rgba(255,255,255,0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  
+}
+
+.heart-icon{
+  filter: drop-shadow(5px 5px 8px #000000);
+}
+
