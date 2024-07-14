@@ -6,7 +6,7 @@ const DarkModeToggle = () => {
  
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
   return (
-   <DarkModeIcon isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
+   <DarkModeIcon isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}  />
   );
 };
 

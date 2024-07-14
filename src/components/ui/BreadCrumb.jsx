@@ -2,7 +2,7 @@ import React from "react";
 
 function BreadCrumb({category,item}) {
   return <>
-  <nav aria-label="breadcrumb" className="w-full  bg-blend-darken text-white	  ">
+  <nav aria-label="breadcrumb" className="hidden md:block w-full  bg-blend-darken text-white	  ">
 	<ol className="flex h-5	 space-x-2 text-gray-600 dark:text-white/50 ">
 		<li className="flex items-center">
 			<a rel="noopener noreferrer" href="#" title="Back to homepage" className="flex items-center hover:scale-75">Home</a>

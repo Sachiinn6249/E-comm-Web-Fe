@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 import TopButton from "../ui/TopButton";
 import MobileMenu from "./MobileMenu";
 
 
+import Playstore from '../../assets/Icons/google-play-badge-2022-2.svg'
+import Appstore from '../../assets/Icons/available-on-the-app-store-1.svg'
+import QR from '../../assets/Icons/qr-code.png'
+import Facebook from '../../assets/Icons/facebook.svg'
+import Twitter from '../../assets/Icons/twitter.svg'
+import Insta from '../../assets/Icons/instagram.svg'
+import Linkedin from '../../assets/Icons/linkedin.svg'
+
 function Footer() {
-  const {  isAuthenticated } = useAuth0();
+
   return <>
     <div className="hidden md:block relative">
         <TopButton/>
@@ -67,7 +74,7 @@ function Footer() {
             <h3 className="font-bold text-lg mb-2">Quick Link</h3>
             <ul>
               <li>
-                <Link to={ !isAuthenticated  && "/admin/login"} className="hover:underline">
+                <Link  className="hover:underline">
                   Admin Support
                 </Link>
               </li>
@@ -95,26 +102,27 @@ function Footer() {
           </div>
           <div>
             <h3 className="font-bold text-lg mb-2">Download App</h3>
-            <p className="mb-2">20% off  with App "New User Only"</p>
+            {/* <p className="mb-2">20% off  with App "New User Only"</p> */}
             <div className="flex space-x-2 mb-4">
-              <img src="https://placehold.co/50x50" alt="QR Code" />
+              <div className="bg-white"><img src={QR} alt="QR Code" className="h-20 w-20" /></div>
+              
               <div className="flex flex-col space-y-2">
-                <img src="https://placehold.co/100x30" alt="Google Play" />
-                <img src="https://placehold.co/100x30" alt="App Store" />
+                <img src={Playstore} alt="Google Play" className="w-28" />
+                <img src={Appstore} alt="App Store" className="w-28" />
               </div>
             </div>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-zinc-400">
-                <img  alt="facebook" src="https://placehold.co/20x20" />
+                <img  alt="facebook" src={Facebook}/>
               </a>
               <a href="#" className="hover:text-zinc-400">
-                <img  alt="twitter" src="https://placehold.co/20x20" />
+                <img  alt="twitter" src={Twitter} />
               </a>
               <a href="#" className="hover:text-zinc-400">
-                <img  alt="instagram" src="https://placehold.co/20x20" />
+                <img  alt="instagram" src={Insta} />
               </a>
               <a href="#" className="hover:text-zinc-400">
-                <img  alt="linkedin" src="https://placehold.co/20x20" />
+                <img  alt="linkedin" src={Linkedin}/>
               </a>
             </div>
           </div>

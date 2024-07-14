@@ -1,15 +1,18 @@
+import { ArrowRightCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import '../Styles/LoginButton.css'
+
+
 
 
 function LoginButton() {
   
   return (
-    <Link to={'/user/login'}
-      className="login text-black dark:text-white dark:border-white felx items-center">
-      Login
-    </Link>
-   
+  <Link to='/grab/login'
+      className="group bg-emerald-700  text-white felx items-center flex px-1 py-1.5 gap-2 rounded-[10px] "
+      >
+        <ArrowRightCircle size={'30'} className=' group-hover:animate-ping group-hover:text-emerald-400'/>
+      <span className='mr-3 font-semibold text-lg'>Login</span>
+      </Link>
   );
 }
 

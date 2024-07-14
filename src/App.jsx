@@ -1,70 +1,29 @@
-import {createBrowserRouter} from "react-router-dom";
 
-import HomeLayout from "./Layout/HomeLayout.jsx";
-import AdminLogin from './Pages/Admin/AdminLogin.jsx';
-import UserLayout from "./Layout/UserLayout.jsx";
-import Errorpage from "./Pages/ErrorPage/Errorpage.jsx";
-import AdminLayout from "./Layout/AdminLayout.jsx";
-import './index.css'
-import ProductPage from "./Pages/ProductPage/ProductPage.jsx";
-import CategoryList from "./Pages/ProductPage/CategoryList.jsx";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { routes } from './routes/Routes';
+import { ToastContainer } from 'react-toastify';
+import { useEffect, useState } from 'react';
+import Loader from './components/Loader/Loader';
 
+export default function App() {
+  const router = createBrowserRouter(routes);
+  const [loading, setLoading] = useState();
 
-import UserLogin from "./Pages/User/UserLogin.jsx";
-import UserSignIn from "./Pages/User/UserSignIn.jsx";
-import ProuductLayout from "./Layout/ProuductLayout.jsx";
-import ProductList from "./Pages/ProductPage/ProuductList.jsx";
+  useEffect(() => {
+    setLoading(true);
+    // Simulate a network request
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+  }, [setLoading]);
 
-const App = createBrowserRouter([
-  {   
-    path:'/',                      
-    element: (
-     <HomeLayout/>
-    ),
-  },
-  {
-    path:'/user/signin',
-    element: <UserSignIn/>,
-  },
-  {
-    path:'/user/login',
-    element: <UserLogin/>,
-  },
-  {
-    path:'/user/home',
-    element: <UserLayout/>, 
-  },
-  {
-    path:'/user/list',
-    element: <ProuductLayout/>,
-    children:[
-      
-      {
-        path:'category',
-        element: <CategoryList/>
-      },
-      {
-        path:'products',
-        element: <ProductList/>
-      },
-      {
-        path:'product',
-        element: <ProductPage/>
-      },
-    ]
-  },
-  {
-    path:'/admin/login',
-    element: <AdminLogin/>
-  },
-  {
-    path:'/admin/dashboard',
-    element: <AdminLayout/>
-  },
-  {
-    path:'*',
-    element: <Errorpage/>
+  if (loading) {
+    return <Loader/>;
   }
-  
-]);
-export default App;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer  />
+    </>
+  );
+}

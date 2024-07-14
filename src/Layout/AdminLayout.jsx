@@ -1,4 +1,4 @@
-import AdminDashBoard from "@/Pages/Admin/AdminDashBoard";
+import AdminDashBoard from "@/components/Admin/AdminDashBoard";
 import Footer from "@/components/Sections/Footer";
 
 

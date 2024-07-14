@@ -34,9 +34,7 @@
     box-shadow: 0 0 50px 20px rgba(0, 0, 0, .1);
     line-height: 1;
   }
-  .toggle:hover{
-    background-color: #50C878;
-  }
+ 
   .logoAni{
 
     animation: myAnim 2s ease 0s 1 normal forwards;
