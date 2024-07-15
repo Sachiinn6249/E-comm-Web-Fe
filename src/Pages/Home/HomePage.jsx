@@ -29,12 +29,7 @@ function HomePage() {
 
   return (
     <>
-      <NewHero />
       <ProductSlide product={products} />
-      <ShopByCategory />
-      <Banner />
-      <OurBrands />
-      <Services />
     </>
   );
 }

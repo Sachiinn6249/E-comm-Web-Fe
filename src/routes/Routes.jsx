@@ -23,7 +23,6 @@ import UserDetails from "@/Pages/Admin/UserDetails";
 import SellerDetails from "@/Pages/Admin/SellerDetails";
 import SellerLogin from "@/Pages/Seller/SellerLogin";
 import SellerRegister from "@/Pages/Seller/SellerRegister";
-import { element } from "prop-types";
 import SellerRoute from "@/components/ProtectedRoute/SellerRoute";
 import SellerLayout from "@/Layout/SellerLayout";
 import SellerHomePage from "@/Pages/Seller/SellerHomePage";
