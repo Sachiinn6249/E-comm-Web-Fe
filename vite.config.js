@@ -11,4 +11,13 @@ export default defineConfig({
       "@": path.resolve( "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].js', // Example entry file name pattern
+        chunkFileNames: 'assets/[name].js', // Example chunk file name pattern
+        assetFileNames: 'assets/[name].[ext]' // Example asset file name pattern
+      }
+    }
+  }
 })
