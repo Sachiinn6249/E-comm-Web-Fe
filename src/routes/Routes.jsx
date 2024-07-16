@@ -51,9 +51,9 @@ export const routes = [
 
   {
     element: (
-      // <UserRoutes>
+      <UserRoutes>
         <UserLayout />
-      // </UserRoutes>
+      </UserRoutes>
     ),
     children: [
       {
