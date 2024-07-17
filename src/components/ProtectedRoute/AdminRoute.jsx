@@ -3,7 +3,7 @@ import axiosInstance from "@/config/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { adminState } from "@/Store/adminAtom";
-import Errorpage from "@/Pages/ErrorPage/Errorpage";
+import Loading from "../Loader/Loading";
 
 const AdminRoute = ({ children }) => {
   const navigate = useNavigate();
@@ -24,8 +24,8 @@ const AdminRoute = ({ children }) => {
     };
     checkAdmin();
   }, [navigate,setData]);
-
-  return admin ? children : <Errorpage/>;
+  console.log(admin);
+  return admin ? children : <Loading/>;
 };
 
 export default AdminRoute;

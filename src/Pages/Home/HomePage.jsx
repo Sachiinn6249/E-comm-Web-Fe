@@ -22,14 +22,19 @@ function HomePage() {
   });
   const [productList, setProductList] = useRecoilState(productState);
   setProductList(products);
- 
-  if (isLoading){
-   return <LoadingBar/>
- }
+
+  if (isLoading) {
+    return <LoadingBar />;
+  }
 
   return (
     <>
-      <ProductSlide product={products} />
+      <NewHero />
+      <ProductSlide product={productList} />
+      <ShopByCategory />
+      <Banner />
+      <OurBrands />
+      <Services />
     </>
   );
 }

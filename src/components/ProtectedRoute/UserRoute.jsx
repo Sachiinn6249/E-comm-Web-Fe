@@ -3,34 +3,40 @@ import axiosInstance from "@/config/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { userState } from "@/Store/userAtom";
-import UserLogin from "@/Pages/User/UserLogin";
+import Loading from "../Loader/Loading";
 
 const UserRoute = ({ children }) => {
-  
   const navigate = useNavigate();
-  
   const [data, setData] = useRecoilState(userState);
-  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkUser = async () => {
-      const response = await axiosInstance.get("user/check", {
-        withCredentials: true,
-      });
-      
-      const user = response.data;
-      console.log(user.success);
-     
-      if (user.success === false || !user) {
+      try {
+        // await new Promise(resolve => setTimeout(resolve, 500));
+        const response = await axiosInstance.get("user/check");
+        const user = response.data;
+        
+        if (user.success === false) {
+          navigate("/grab/login", { replace: true });
+        } else {
+          setData(user.data);
+        }
+      } catch (error) {
+        console.error("Error checking user", error);
         navigate("/grab/login", { replace: true });
+      } finally {
+        setLoading(false);
       }
-      await setUser(user.data);
-      await setData(user.data);
     };
     checkUser();
   }, [navigate, setData]);
 
-  return user ? children : <UserLogin/>;
+  if (loading) {
+    return <Loading/>; // Show a loading indicator while checking user
+  }
+
+  return data ? children : <Loading/>
 };
 
 export default UserRoute;

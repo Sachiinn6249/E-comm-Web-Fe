@@ -17,7 +17,7 @@ const schema = yup
   .required();
 function UserLogin() {
   const navigate = useNavigate();
-  const [Data, setData] = useRecoilState(userState);
+  // const [Data, setData] = useRecoilState(userState);
   
   const {
     register,
@@ -25,12 +25,16 @@ function UserLogin() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit =  (data) => {
+  const onSubmit = async (data) => {
     try {
-      const user =  LoginHandler(data);
-      navigate("/user/home");
-      const userData = user.data;
-      setData(userData);
+      const response = await LoginHandler(data); // Call your login handler
+
+      if (response.success) { // Handle successful login based on your backend response
+        navigate("/user/home");
+      } else {
+        // Handle login failures (e.g., display error messages)
+        console.error("Login failed:", response.error); // Or display a user-friendly message
+      }
     } catch (error) {
       console.error("Sign in failed:", error);
     }

@@ -10,6 +10,7 @@ export const adminLogin = async (data) => {
       withCredentials: true,
     });
     Toast({ type: "success", message: "Login  Successfull!" });
+    console.log(response.data);
     return response.data; 
   } catch (error) {
     Toast({ type: "error", message:"Login Failed!"});

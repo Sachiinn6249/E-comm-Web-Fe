@@ -165,6 +165,7 @@ function AddProduct() {
                           >
                             <option value=""></option>
                             <option value="clothing">Clothing</option>
+                            <option value="footwear">Footwear</option>
                             <option value="electronics">Electronics</option>
                             <option value="home_decor">Home Decor</option>
                             <option value="toys">Toys</option>
@@ -196,6 +197,14 @@ function AddProduct() {
                                 <option value="shirts">T-Shirts</option>
                                 <option value="pants">Pants</option>
                                 <option value="dresses">Dresses</option>
+                              </>
+                            )}
+                            {watch("category") === "footwear" && (
+                              <>
+                                <option value="shirts">Shoes</option>
+                                <option value="shirts">Sandals</option>
+                                <option value="pants">Slippers</option>
+                                <option value="dresses">Loafers</option>
                               </>
                             )}
                             {watch("category") === "electronics" && (

@@ -3,7 +3,7 @@ import axiosInstance from "@/config/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { sellerState } from "@/Store/sellerAtom";
-import Errorpage from "@/Pages/ErrorPage/Errorpage";
+import Loading from "../Loader/Loading";
 
 const SellerRoute = ({ children }) => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const SellerRoute = ({ children }) => {
     checkSeller();
   }, [navigate,setData]);
 
-  return seller ? children : <Errorpage/>;
+  return seller ? children : <Loading/>;
 };
 
 export default SellerRoute;

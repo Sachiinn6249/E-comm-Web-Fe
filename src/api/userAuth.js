@@ -3,6 +3,7 @@ import Toast from "@/components/ui/Toast";
 import 'react-toastify/dist/ReactToastify.css';
 
 
+
 export const registerHandler = async (data) => {
   try {
     const response = await axiosInstance.post("user/register", data);

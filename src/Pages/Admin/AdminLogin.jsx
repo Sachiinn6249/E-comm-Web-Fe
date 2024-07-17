@@ -3,8 +3,6 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { adminLogin } from "@/api/adminAuth";
-import { useRecoilState } from "recoil";
-import { adminState } from "@/Store/adminAtom";
 import "react-toastify/dist/ReactToastify.css";
 
 const schema = yup
@@ -17,8 +15,6 @@ const schema = yup
   .required();
 function AdminLogin() {
   const navigate = useNavigate();
-  const [Data, setData] = useRecoilState(adminState);
-  
   const {
     register,
     handleSubmit,
@@ -27,11 +23,8 @@ function AdminLogin() {
 
   const onSubmit = async (data) => {
     try {
-      const admin = await adminLogin(data);
-      const adminData = admin.data;
-      setData(adminData);
-      console.log(Data);
-      navigate("/admin/home");
+      const admin = await adminLogin(data); 
+      admin && navigate("/admin/home");
     } catch (error) {
       console.error("Sign in failed:", error);
     }

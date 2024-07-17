@@ -4,6 +4,7 @@ import { userState } from '@/Store/userAtom';
 
 import { getFavoriteList } from '@/api/productApi';
 import LoadingBar from '../Loader/LoadingBar';
+import NotAvailable from '@/Pages/ErrorPage/NotAvailable';
 
 function FavoriteList() {
   const user =useRecoilValue(userState);
@@ -28,7 +29,21 @@ function FavoriteList() {
           <h2 className="font-manrope font-bold text-4xl text-white mb-8 max-lg:text-center">
             Favorite list
           </h2>
+          {favorites?.length === 0 && (
+          <div className="text-center mt-8 text-lg text-gray-500 w-full   flex flex-col justify-center">
+           <h1>No Items Found in Favorite List ⌛{" "} </h1> 
+           <div>
+            <NotAvailable/>
+           </div>
+            <span>
+              <button className="bg-black rounded-md px-3 py-1.5 text-white hover:scale-90">
+                Shop Now!
+              </button>
+            </span>
+          </div>
+        )}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+         
             {
               favorites &&
               favorites?.map((favorite) => (
