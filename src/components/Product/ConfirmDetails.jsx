@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 
 import { getCartItems } from "@/api/productApi";
 import { getOrder } from "@/api/orderApi";
+import Loading from "../Loader/Loading";
 
 
 import { CircleCheckBig } from "lucide-react";
@@ -24,13 +25,18 @@ const ConfirmDetails = () => {
       const {
         data: cart,
         // isError,
-        // isLoading,
+        isLoading,
         // error,
       } = useQuery({
         queryKey: ["cart", userId],
         queryFn: getCartItems,
         retry: false,
       });
+
+      if (isLoading) {
+        return <Loading/>;
+      }
+    
      
       const handleCheckout = async () => {
         // const stripe = await loadStripe(import.meta.env.VITE_API_STRIPE_PUBLISHABLE_KEY);

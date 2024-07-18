@@ -3,8 +3,8 @@ import { useRecoilValue } from 'recoil';
 import { userState } from '@/Store/userAtom';
 
 import { getFavoriteList } from '@/api/productApi';
-import LoadingBar from '../Loader/LoadingBar';
 import NotAvailable from '@/Pages/ErrorPage/NotAvailable';
+import Loading from '../Loader/Loading';
 
 function FavoriteList() {
   const user =useRecoilValue(userState);
@@ -20,7 +20,7 @@ function FavoriteList() {
   });
   console.log(favorites)
   if(isLoading){
-    return <LoadingBar/>
+    return <Loading/>
   }
   return (
     <>

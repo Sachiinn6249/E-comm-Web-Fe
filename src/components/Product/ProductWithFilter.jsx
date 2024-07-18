@@ -11,7 +11,7 @@ import ProductList from "./ProuductList";
 import { ListFilter } from "lucide-react";
 import BreadCrumb from "../ui/BreadCrumb";
 import NotAvailable from "@/Pages/ErrorPage/NotAvailable";
-import LoadingBar from "../Loader/LoadingBar";
+import Loading from "../Loader/Loading";
 
 
 function ProductWithFilter() {
@@ -53,7 +53,7 @@ function ProductWithFilter() {
     cloth: ["S", "M", "L", "XL", "XXL"],
   };
   if(isLoading){
-    return <LoadingBar/>
+    return <Loading/>
   }
   return (
     <div className="flex mx-auto flex-col lg:flex-row ">

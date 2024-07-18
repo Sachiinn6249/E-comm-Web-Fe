@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import { getCartItems } from "@/api/productApi";
 import { placeOrder } from "@/api/orderApi";
-import LoadingBar from "../Loader/LoadingBar";
+import Loading from "../Loader/Loading";
 
 
 function Checkout() {
@@ -53,7 +53,7 @@ const onSubmit = data => {
   mutation.mutate({ userId, data });
 };
 if(isLoading){
-  return <LoadingBar/>
+  return <Loading/>
 }
   return (
     <>

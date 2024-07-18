@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchProducts } from "../../api/productApi";
 import { useRecoilState } from "recoil";
 import { productState } from "@/Store/productAtom";
-import LoadingBar from "@/components/Loader/LoadingBar";
+import Loading from "@/components/Loader/Loading";
 function HomePage() {
   const {
     data: products,
@@ -24,7 +24,7 @@ function HomePage() {
   setProductList(products);
 
   if (isLoading) {
-    return <LoadingBar />;
+    return <Loading />;
   }
 
   return (

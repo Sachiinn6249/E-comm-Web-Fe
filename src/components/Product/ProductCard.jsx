@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { BadgePlus } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function ProductCard({ product }) {

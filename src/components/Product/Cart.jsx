@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import NotAvailable from "@/Pages/ErrorPage/NotAvailable";
-import LoadingBar from "../Loader/LoadingBar";
+import Loading from "../Loader/Loading";
 
 export default function Cart() {
   const user = useRecoilValue(userState);
@@ -78,7 +78,7 @@ export default function Cart() {
   };
 
   if(isLoading){
-    return <LoadingBar/>
+    return <Loading/>
   }
   return (
     <>

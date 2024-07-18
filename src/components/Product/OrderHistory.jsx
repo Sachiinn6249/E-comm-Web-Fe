@@ -4,7 +4,7 @@ import { userState } from "@/Store/userAtom";
 import { useQuery } from "@tanstack/react-query";
 import { getOrderList } from "@/api/orderApi";
 import NotAvailable from "@/Pages/ErrorPage/NotAvailable";
-import LoadingBar from "../Loader/LoadingBar";
+import Loading from "../Loader/Loading";
 
 export default function OrderHistory() {
   const user = useRecoilValue(userState);
@@ -23,7 +23,7 @@ export default function OrderHistory() {
   }
 
   if(isLoading){
-    return <LoadingBar/>
+    return <Loading/>
   }
   const ordersArray = Array.isArray(orders) ? orders : [orders]; 
   return (
